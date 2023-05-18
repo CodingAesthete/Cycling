@@ -1,0 +1,97 @@
+body {
+  font-family: Arial;
+  color: #333;
+  padding-top: 200px;
+}
+
+header {
+  background: rgba(217, 217, 217, 0.9);
+  width: 100%;
+  position: fixed;
+  top:0;
+  height: 160px;
+}
+
+header h1 {
+  text-align: center;
+}
+
+p{
+  line-height: 1.5em;
+  text-align: justify;
+}
+
+img {
+  width: 660px;;
+  display:block;
+  max-width:100%;
+}
+
+section {
+  width: 95%;
+  margin:0 auto 150px auto;
+  padding: 25px;
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+}
+
+header nav {
+  width: 95%;
+  margin: auto;
+}
+
+header nav ul {
+  display:flex;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+header nav ul li {
+  width: 33.3%;
+  box-sizing: border-box;
+  border-left: 2px solid #666;
+}
+
+header nav ul li:first-of-type {
+  border-left: none;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  display:block;
+  color:white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px;
+  background: rgb(226, 80, 80);
+  white-space: nowrap;
+  overflow:hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.selected {
+  background: rgba(254, 0, 187, 1.00);
+  transition: all 1s;
+}
+
+#sound-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 10%;
+  left:2.6%;
+  width:50px;
+  background-color: white;;
+}
+
+@media only screen and (min-width: 700px) {
+  #first article, #second article, #third article {
+    display:flex;
+    align-items: flex-start;
+  }
+
+  #first article img, #second article img, #third article img {
+    margin-left: 25px;
+    padding-top:20px;
+  }
+}
