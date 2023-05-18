@@ -1,5 +1,19 @@
 $(window).on('load', function() {
  createSound();
+
+ $('nav ul li a').click( function() {
+  const thisSection = $(this).attr('href');
+  const thislink = $(this);
+
+  $('html, body').stop().animate({
+    scrollTop: $(thisSection).offset().top - 180
+  }, 800, 'easeOutCirc', function() {
+    $('nav ul li a').removeClass("selected");
+    $(thislink).addClass("selected");
+  });
+
+ });
+
 })
 
 function createSound(){

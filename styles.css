@@ -63,7 +63,7 @@ header nav ul li a {
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px;
-  background: rgb(226, 80, 80);
+  background: rgb(236, 129, 129);
   white-space: nowrap;
   overflow:hidden;
   text-align: center;
@@ -71,7 +71,7 @@ header nav ul li a {
 }
 
 .selected {
-  background: rgba(254, 0, 187, 1.00);
+  background: rgb(119, 12, 12);
   transition: all 1s;
 }
 
