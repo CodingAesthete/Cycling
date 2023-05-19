@@ -10,6 +10,20 @@ $(document).ready(function() {
     }, 800, 'easeOutCirc',);
   });
 
+  $(window).scroll(function() {
+    setSelectedSection();
+  });
+
+  $(window).on('resize load', function() {
+    clearTimeout(doneResizing);
+
+    doneResizing = setTimeout(function() {
+      setSelectedSection();
+    }, 500);
+  });
+
+  setSelectedSection();
+
   function setSelectedSection() {
     var pageTop = $(window).scrollTop() + 240;
 
@@ -24,18 +38,4 @@ $(document).ready(function() {
       }
     });
   }
-
-  $(window).scroll(function() {
-    setSelectedSection();
-  });
-
-  $(window).on('resize load', function() {
-    clearTimeout(doneResizing);
-
-    doneResizing = setTimeout(function() {
-      setSelectedSection();
-    }, 500);
-  });
-
-  setSelectedSection();
 });
