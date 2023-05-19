@@ -1,7 +1,5 @@
 $(document).ready(function() {
   $('nav ul li a').click(function(e) {
-    e.preventDefault();
-
     const section = $($(this).attr('href'));
     const sectionOffset = section.offset().top - 180;
 
@@ -10,11 +8,11 @@ $(document).ready(function() {
     }, 800, 'easeOutCirc');
   });
 
-  var resizeTimeout;
+  let doneResizing;
   $(window).on('resize', function() {
-    clearTimeout(resizeTimeout);
+    clearTimeout(doneResizing);
 
-    resizeTimeout = setTimeout(function() {
+    doneResizing = setTimeout(function() {
       selectSection();
     }, 500);
   });
@@ -23,26 +21,23 @@ $(document).ready(function() {
     selectSection();
   });
 
-  selectSection();
-
   function selectSection() {
-    var pageTop = $(window).scrollTop() + 240;
-    var selectedSection = null;
+    const pageTop = $(window).scrollTop() + 240;
+    let selectedSection = null;
 
     $('section').each(function(index) {
-      var sectionTop = $(this).offset().top;
-      var sectionBottom = sectionTop + $(this).outerHeight();
+      const sectionTop = $(this).offset().top;
+      const sectionBottom = sectionTop + $(this).outerHeight();
 
       if (pageTop >= sectionTop && pageTop < sectionBottom) {
         selectedSection = $(this);
-        return false;
       }
     });
 
     if (selectedSection) {
-      var selectedLinkId = selectedSection.attr('id');
+      const selectedId = selectedSection.attr('id');
       $('nav ul li a').removeClass('selected');
-      $('nav ul li a[href="#' + selectedLinkId + '"]').addClass('selected');
+      $('nav ul li a[href="#' + selectedId + '"]').addClass('selected');
     }
   }
 });
