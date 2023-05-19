@@ -2,29 +2,29 @@ $(document).ready(function() {
   $('nav ul li a').click(function(e) {
     e.preventDefault();
 
-    const targetSection = $($(this).attr('href'));
-    const targetOffset = targetSection.offset().top - 180;
+    const section = $($(this).attr('href'));
+    const sectionOffset = section.offset().top - 180;
 
     $('html, body').stop().animate({
-      scrollTop: targetOffset
+      scrollTop: sectionOffset
     }, 800, 'easeOutCirc',);
   });
 
   $(window).scroll(function() {
-    setSelectedSection();
+    selectSection();
   });
 
-  $(window).on('resize load', function() {
+  $(window).on('resize', function() {
     clearTimeout(doneResizing);
 
     doneResizing = setTimeout(function() {
-      setSelectedSection();
+      selectSection();
     }, 500);
   });
 
-  setSelectedSection();
+  selectSection();
 
-  function setSelectedSection() {
+  function selectSection() {
     const pageTop = $(window).scrollTop() + 240;
 
     $('section').each(function(index) {
@@ -34,7 +34,6 @@ $(document).ready(function() {
       if (pageTop >= sectionTop && pageTop < sectionBottom) {
         $('nav ul li a').removeClass('selected');
         $('nav ul li a').eq(index).addClass('selected');
-        return false;
       }
     });
   }
