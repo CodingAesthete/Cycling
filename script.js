@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  createSound();
+
   $('nav ul li a').click(function(e) {
     const section = $($(this).attr('href'));
     const sectionOffset = section.offset().top - 180;
@@ -40,4 +42,28 @@ $(document).ready(function() {
       $('nav ul li a[href="#' + selectedId + '"]').addClass('selected');
     }
   }
+
+  function createSound(){
+    var audio = document .getElementById("audio");
+    var soundIcon = document.getElementById("sound-icon");
+    soundIcon.src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-volume-mute-512.png";
+    $('#audio').prop('volume', 0.85);
+    
+      soundIcon.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play();
+          soundIcon.src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-volume-high-512.png";
+      } else {
+          audio.pause();
+          soundIcon.src = "https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-volume-mute-512.png";
+        }
+      });
+    
+    audio.addEventListener('ended', function() {
+      audio.currentTime = 0;
+      audio.play(); 
+    });
+    
+    audio.play();
+  };
 });
