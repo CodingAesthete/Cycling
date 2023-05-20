@@ -82,7 +82,10 @@ header nav ul li a {
   left: 10px;
   z-index: 1;
   width:50px;
-  background-color: white;;
+  background-color: white;
+  position: fixed;
+  top:2.5%;
+  left: 2.6%;
 }
 
 
